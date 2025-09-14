@@ -1,0 +1,26 @@
+.header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between; /* ロゴを左、ナビを右に配置 */
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    gap: 10px; /* ボタン間に10pxの間隔 */
+    margin-left: auto; /* 右寄せ */
+}
+
+.nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.nav a:hover {
+    background-color: #ddd;
+}

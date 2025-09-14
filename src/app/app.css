@@ -1,0 +1,19 @@
+.my-image {
+    position: relative;
+}
+
+.kind-my-profile {
+    position: absolute;
+    top: 350px;
+    right: 20%;
+}
+
+.kind-my-profile h1 {
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.kind-my-profile p {
+    font-size: 30px;
+    margin-top: -20px;
+}
