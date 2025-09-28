@@ -1,0 +1,21 @@
+.work-box {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* app.css */
+
+.my-work ul {
+  display: flex;         /* 子要素(li)を横並びにする */
+  flex-wrap: wrap;       /* 画面幅に応じて折り返す */
+  justify-content: center; /* 中央に配置する */
+  gap: 24px;             /* アイテム間の隙間 */
+
+  /* ↓↓ ulのデフォルトスタイルをリセット ↓↓ */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

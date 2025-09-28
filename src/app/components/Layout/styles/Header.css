@@ -5,6 +5,11 @@
     display: flex;
     justify-content: space-between; /* ロゴを左、ナビを右に配置 */
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
 .nav {

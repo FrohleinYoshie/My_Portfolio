@@ -1,5 +1,4 @@
 .footer {
-    left: 0;
     width: 100%;
     background-color: #f0f0f0;
     text-align: center;
@@ -7,6 +6,7 @@
     color: #666;
     font-size: 14px;
     border-top: 1px solid #ccc;
+    position: relative;
 }
 
 /* アイコンリンクのスタイル調整 */
@@ -16,7 +16,6 @@
     margin: 0 5px; /* アイコン間の間隔 */
     padding: 0; /* パディングを削除 */
 }
-
 
 .icon-link {
     display: inline-block;

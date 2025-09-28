@@ -3,12 +3,14 @@
 
 import Header from '../components/Layout/Header'
 import Footer from '../components/Layout/Footer';
+import './style.css'
 
 export default function Histories() {
     return (
-        <div>
+<div className='page-container'>
             <Header />
-            <h1>経歴</h1>
+            <main className='main-content'>
+            </main>
             <Footer />
         </div>
     )
