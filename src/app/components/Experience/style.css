@@ -1,0 +1,10 @@
+.experience {
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    position: relative;
+    bottom: 36rem;
+    left: 7rem;
+    min-height: 35vh;
+    width: 70vh;
+    border-radius: 10px;
+}

@@ -8,13 +8,15 @@ import Image from 'next/image'
 import LoadingScreen from './components/Loading/LoadingScreen'
 import Work_List from './components/Works_List/Work_List'
 import './app.css'
+import { supabase } from '../lib/supabaseClient'
+import type { Work, History } from '../types/portfolio'
 
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(true)
     const [hasVisited, setHasVisited] = useState(false)
-    const [test_work, setTest_work] = useState(["作品1", "作品2", "作品3"]) //　作品リストのテスト用配列
-    const [test_histories, setTest_histories] = useState(["経歴1", "経歴2", "経歴3"]) // 経歴リストのテスト用配列
+    const [works, setWorks] = useState<Work[]>([]) // 作品リストの初期値
+    const [histories, setHistories] = useState<History[]>([]) // 経歴リストの初期値
 
     useEffect(() => {
         const visited = sessionStorage.getItem('hasVisited')
@@ -22,6 +24,17 @@ export default function Home() {
             setHasVisited(true)
             setIsLoading(false)
         }
+    }, [])
+    useEffect(() => {
+        const loadData = async () => {
+            const [{data: worksData, error: worksError}, {data: historiesData, error: historiesError}] = await Promise.all([
+                supabase.from('works').select('*').order('created_at', { ascending: false }),
+                supabase.from('histories').select('*').order('created_at', { ascending: false})
+            ])
+            if (!worksError && worksData) setWorks(worksData as Work[])
+            if (!historiesError && historiesData) setHistories(historiesData as History[])
+        }
+    loadData()
     }, [])
     const handleLoadingComplete = () => {
         setIsLoading(false)
@@ -48,8 +61,8 @@ export default function Home() {
                 <div className='my-work'>
                     <h1>これまでの作品</h1>
                     <ul>
-                        {test_work.map((work, index) => (
-                            <Work_List key={index} title={work} style={{ width: '240px' }} />
+                        {works.map((work) => (
+                            <Work_List key={work.id} title={work.title} style={{ width: '240px' }} />
                         ))}
                     </ul>
                 </div>
@@ -57,8 +70,8 @@ export default function Home() {
                 <div className='my-histories'>
                     <h1>これまでの経歴</h1>
                     <ul>
-                        {test_histories.map((history, index) => (
-                            <li key={index}>{history}</li>
+                        {histories.map((history) => (
+                            <li key={history.id}>{history.content}</li>
                         ))}
                     </ul>
                 </div>

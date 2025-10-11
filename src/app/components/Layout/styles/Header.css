@@ -1,7 +1,7 @@
 .header {
-    background-color: #f0f0f0;
+    background: rgba(20, 39, 59, .8);
     padding: 10px;
-    border-bottom: 1px solid #ccc;
+    color: white;
     display: flex;
     justify-content: space-between; /* ロゴを左、ナビを右に配置 */
     align-items: center;
@@ -9,23 +9,47 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    height: 3rem;
+    z-index: 1000; /* ヘッダーを最前面に表示 */
 }
 
 .nav {
     display: flex;
-    gap: 10px; /* ボタン間に10pxの間隔 */
-    margin-left: auto; /* 右寄せ */
+    gap: 35px; /* ボタン間に35pxの間隔 */
+    position: relative;
+    right: 15%;
+}
+
+.over_link {
+    display: flex;
+    position: relative;
+    right: 10px;
+    top: 3px;
+    gap: 10px;
 }
 
 .nav a {
-    text-decoration: none;
-    color: #333;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: background-color 0.2s;
+  position: relative;
+  display: inline-block;
+  transition: .3s;
+  font-weight: bold;
 }
-
 .nav a:hover {
-    background-color: #ddd;
+  color: #00d0ff;
+}
+.nav a::after {
+  position: absolute;
+  top: .3em;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 4px;
+  background-color: #333;
+  opacity: 0;
+  transition: .3s;
+}
+.nav a:hover::after {
+  top: -50%;
+  background-color: #00d0ff;
+  opacity: 1;
 }
